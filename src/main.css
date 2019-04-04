@@ -1,0 +1,10 @@
+.container{
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 8fr;
+}
+
+.body-container{
+    display: grid;
+    grid-template-columns:  1fr 4fr 2fr;
+}
