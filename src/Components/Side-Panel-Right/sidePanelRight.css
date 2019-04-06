@@ -1,3 +1,8 @@
 .card{
     margin: 10px;
 }
+
+.side-panel-right{
+    height: 100vh;
+    overflow: auto;
+}

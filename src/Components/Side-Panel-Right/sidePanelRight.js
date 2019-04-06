@@ -5,16 +5,15 @@ import CardContent from '@material-ui/core/CardContent';
 import './sidePanelRight.css';
 
 class SidePanelRight extends Component{
-
-    // componentDidMount=() => {
-    //     ReactDOM.nex
-    // }
     
     render(){
-        console.log(this.props.userList[0]);
+
+        let userList = [...this.props.userList];
+        userList = userList.reverse();
+        // console.log(this.props.userList[0]);
         return(
             <div className = 'side-panel-right'>
-                {this.props.userList.map((userInfo) => (
+                {userList.map((userInfo) => (
                     <Card className = 'card' key = {userInfo.id}>
                         <CardContent>
                             <p>{userInfo.firstName}</p>

@@ -1,4 +1,16 @@
 .form-container{
-    background-color: aquamarine;
 }
+
+.red{
+    color: red;
+}
+
+.dispNone{
+    display: none;
+}
+
+.submitButton{
+    margin: 20px 10px;
+}
+
 

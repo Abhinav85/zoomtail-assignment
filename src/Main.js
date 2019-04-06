@@ -15,63 +15,18 @@ class Main extends Component{
     
     constructor(props){
         super(props);
-        let date = this.getDate();
         this.state = {
             userInfo : {
                 firstName : '',
                 lastName : '',
-                date : date
+                date : ''
             },
             userList : [],
             isFormDisabled : false
             
         }
     }
-   
 
-
-    getDate = () => {
-        let today = new Date();
-        let dd = today.getDate();
-
-        let mm = today.getMonth()+1; 
-        const yyyy = today.getFullYear() - 25;
-        if(dd<10) 
-        {
-            dd=`0${dd}`;
-        } 
-
-        if(mm<10) 
-        {
-            mm=`0${mm}`;
-        }
-
-        var dateToday = yyyy+'-'+mm+'-'+dd;
-        return dateToday;
-    }
-
-    onSubmitData = () => {
-        let timeNow  = Math.round((new Date()).getTime());
-
-        let userInfo = this.state.userInfo;
-        userInfo = {...userInfo};
-        userInfo.id = timeNow;
-        let userList = this.state.userList;
-        userList.push(userInfo);
-        
-        userList = [...userList];
-       
-
-        userInfo = {...userInfo};
-        userInfo.firstName = '';
-        userInfo.lastName = '';
-        userInfo.date = this.getDate();
-
-        this.onSubmitClick(userInfo,userList)
-        
-        
-        // console.log('userList',userList);
-    }
 
     onSubmitClick = (userInfo,userList) => {
         this.setState({
@@ -101,7 +56,6 @@ class Main extends Component{
     }
 
     handleKeyPress = (e) => {
-        console.log(e.keyCode);
 
         let isFormDisabled = this.state.isFormDisabled;
 
@@ -115,10 +69,25 @@ class Main extends Component{
 
     shiftFocusToForm = () => {
 
-        console.log('clicked');
         this.setState({
             isFormDisabled : false
         })
+    }
+
+    setDataIntoUserInfo = (firstName,lastName,date) =>{
+        let userInfo = this.state.userInfo;
+        userInfo = {firstName,lastName,date};
+        let timeNow  = Math.round((new Date()).getTime());
+        
+        userInfo.id = timeNow;
+        let userList = this.state.userList;
+        userList.push(userInfo);
+        
+        userList = [...userList];
+
+        this.onSubmitClick(userInfo,userList)
+
+
     }
 
 
@@ -126,7 +95,6 @@ class Main extends Component{
 
     render(){
 
-        console.log(this.state.isFormDisabled);
         return(
             <div className = 'container' onKeyDown = {this.handleKeyPress}>
                 <div className = "header-conntainer">
@@ -139,7 +107,7 @@ class Main extends Component{
                     <Form 
                         userInfo = {this.state.userInfo} 
                         handleChange = {this.handleChange}
-                        onSubmitData = {this.onSubmitData}
+                        setDataIntoUserInfo = {this.setDataIntoUserInfo}
                         /> 
                     </FocusLock>
                     </div>
