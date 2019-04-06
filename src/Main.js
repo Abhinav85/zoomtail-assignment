@@ -3,6 +3,8 @@ import Form from './Components/Form/form';
 import Header from './Components/Header/header';
 import SidePanelLeft from './Components/Side-Panel-Left/sidePanelLeft';
 import SidePanelRight from './Components/Side-Panel-Right/sidePanelRight';
+import FocusLock from 'react-focus-lock';
+
 
 
 import './main.css';
@@ -21,6 +23,7 @@ class Main extends Component{
                 date : date
             },
             userList : [],
+            isFormDisabled : false
             
         }
     }
@@ -97,25 +100,57 @@ class Main extends Component{
         })
     }
 
+    handleKeyPress = (e) => {
+        console.log(e.keyCode);
+
+        let isFormDisabled = this.state.isFormDisabled;
+
+        if(e.keyCode === 37 || e.keyCode === 39){
+            this.setState({
+                isFormDisabled : !isFormDisabled
+            })
+        }
+
+    }
+
+    shiftFocusToForm = () => {
+
+        console.log('clicked');
+        this.setState({
+            isFormDisabled : false
+        })
+    }
+
 
 
 
     render(){
+
+        console.log(this.state.isFormDisabled);
         return(
-            <div className = 'container'>
+            <div className = 'container' onKeyDown = {this.handleKeyPress}>
                 <div className = "header-conntainer">
                     <Header />
                 </div>
                 <div className = 'body-container'>
                     <SidePanelLeft />
+                    <div className = 'form-focus-container' onClick = {this.shiftFocusToForm}>
+                    <FocusLock disabled = {this.state.isFormDisabled}>
                     <Form 
                         userInfo = {this.state.userInfo} 
                         handleChange = {this.handleChange}
                         onSubmitData = {this.onSubmitData}
                         /> 
+                    </FocusLock>
+                    </div>
+                   <div className = 'side-panel-right-focus-container'>
+                   <FocusLock disabled = {!this.state.isFormDisabled}>
                     <SidePanelRight 
                         userList = {this.state.userList}
                         removeCardById = {this.removeCardById}/>
+                    </FocusLock>
+                   </div>
+                   
                 </div>
             </div>
         )

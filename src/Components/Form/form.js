@@ -6,6 +6,8 @@ import { Button } from '@material-ui/core';
 
 class Form extends Component{
 
+
+
     render(){
         return(
             <div className = 'form-container' ref = 'inputForm'>
@@ -14,6 +16,7 @@ class Form extends Component{
 
                 <div className = "textbox">
                     <TextField
+                        // autoFocus
                         id = 'outlined-firstName'
                         label = "First Name"
                         value = {this.props.userInfo.firstName}
