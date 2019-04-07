@@ -75,7 +75,7 @@ class Form extends Component{
         return(
             <div className = 'form-container' ref = 'inputForm'>
 
-                <h1>Add User</h1>
+                <h1>Add Customer</h1>
 
                 <form noValidate autoComplete = 'off'>
                 <div className = "textbox">
@@ -124,7 +124,7 @@ class Form extends Component{
                     </div>
 
                     <div className = 'submitButton'>
-                        <Button variant = 'contained' onClick = {this.onSubmitData}> Submit</Button>
+                        <Button variant = 'contained' onClick = {this.onSubmitData}> Add Customer Data</Button>
                     </div>
 
                 </form>

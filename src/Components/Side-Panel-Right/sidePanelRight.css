@@ -6,3 +6,39 @@
     height: 100vh;
     overflow: auto;
 }
+
+.card{
+    position: relative;
+}
+
+.card:hover{
+    border: 1px black solid;
+    transform: scale(1.001,1.001);
+    transition: transform 1s;
+}
+
+.delete-button{
+    color: white;
+    background-color: red;   
+    border-radius: 50%;
+    transform: scale(1.2,1.2);
+}
+
+.card:focus-within{
+    border: 1px black solid;
+    transform: scale(1.001,1.001);
+    transition: transform 1s;
+}
+
+.button{
+    position: absolute;
+    top : 0px;
+    right: 0px;
+}
+
+.full-name{
+    margin-right: 30px;
+}
+
+
+

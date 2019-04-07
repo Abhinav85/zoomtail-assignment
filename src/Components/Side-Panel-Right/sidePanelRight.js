@@ -14,12 +14,16 @@ class SidePanelRight extends Component{
         return(
             <div className = 'side-panel-right'>
                 {userList.map((userInfo) => (
-                    <Card className = 'card' key = {userInfo.id}>
+                    <Card className = 'card' key = {userInfo.id} style = {{padding : '0px'}}>
                         <CardContent>
-                            <p>{userInfo.firstName}</p>
-                            <p>{userInfo.lastName}</p>
-                            <p>{userInfo.date}</p>
-                            <button onClick = {() => {this.props.removeCardById(userInfo.id)}}>Delete</button>
+                            <span className = 'full-name'>  {userInfo.firstName}
+                            {` ${userInfo.lastName}`}
+                            </span>
+                           
+                            <span className = 'dob'>{userInfo.date}</span>
+                            <div className = 'button'>
+                            <button  className = 'delete-button' onClick = {() => {this.props.removeCardById(userInfo.id)}}>X</button>
+                            </div>
                         </CardContent>
                     </Card>
                 ))}

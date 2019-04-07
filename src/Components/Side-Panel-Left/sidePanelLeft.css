@@ -1,3 +1,19 @@
 .side-panel-left{
     background-color: darkblue;
 }
+
+.tab-one{
+    display: table;
+    background-color: aqua;
+    height: 10%;
+    width: 100%;
+    text-align: center;
+    padding: auto;
+    border: aqua 1px solid;
+}
+
+.tab-title {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 5px 10px;
+}

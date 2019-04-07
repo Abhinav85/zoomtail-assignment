@@ -1,4 +1,7 @@
 .header{
-    background-color: black;
+    background-color:white;
     height: 100%;
+    color: blue;
+    text-align: left;
+    padding-left: 10px;
 }
